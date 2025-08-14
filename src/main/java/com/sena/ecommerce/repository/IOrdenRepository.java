@@ -1,5 +1,5 @@
 package com.sena.ecommerce.repository;
 
-public interface IProducto {
+public interface IOrdenRepository {
 
 }

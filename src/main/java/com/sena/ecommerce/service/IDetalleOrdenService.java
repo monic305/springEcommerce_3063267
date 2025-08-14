@@ -1,5 +1,8 @@
 package com.sena.ecommerce.service;
 
-public interface IDetalleOrdenService {
+import com.sena.ecommerce.model.DetalleOrden;
 
+public interface IDetalleOrdenService {
+	
+	DetalleOrden save (DetalleOrden detalleOrden);
 }
