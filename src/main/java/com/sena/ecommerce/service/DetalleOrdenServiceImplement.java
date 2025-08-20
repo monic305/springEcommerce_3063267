@@ -15,7 +15,7 @@ public class DetalleOrdenServiceImplement implements IDetalleOrdenService{
 	@Override
 	public DetalleOrden save(DetalleOrden detalleOrden) {
 		// TODO Auto-generated method stub
-		return detalleOrdenRepository.Save(detalleOrden);
+		return detalleOrdenRepository.save(detalleOrden);
 	}
 
 }
