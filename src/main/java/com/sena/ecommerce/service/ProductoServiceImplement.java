@@ -1,79 +1,50 @@
 package com.sena.ecommerce.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sena.ecommerce.model.Orden;
-import com.sena.ecommerce.model.Usuario;
-import com.sena.ecommerce.repository.IOrdenRepository;
+import com.sena.ecommerce.model.Producto;
+import com.sena.ecommerce.repository.IProductoRepository;
 
 @Service
-public class ProductoServiceImplement implements IOrdenService {
+public class ProductoServiceImplement implements IProductoService {
 
 	@Autowired
-	private IOrdenRepository ordenrepository;
+	private IProductoRepository productorepository;
+
+	
 
 	@Override
-	public Orden save(Orden orden) {
+	public Producto save(Producto producto) {
 		// TODO Auto-generated method stub
-		return null;
+		return productorepository.save(producto);
 	}
 
 	@Override
-	public Optional<Orden> findById(Integer id) {
+	public Optional<Producto> get(Integer id) {
 		// TODO Auto-generated method stub
-		return ordenrepository.findById(id);
+		return productorepository.findById(id);
 	}
 
 	@Override
-	public List<Orden> findAll() {
+	public void update(Producto producto) {
 		// TODO Auto-generated method stub
-		return ordenrepository.findAll();
+		productorepository.save(producto);
 	}
 
 	@Override
-	public List<Orden> findByUsuario(Usuario usuario) {
+	public void delete(Integer id) {
 		// TODO Auto-generated method stub
-		return ordenrepository.findByUsuario(usuario);
+		productorepository.deleteById(id);
 	}
 
 	@Override
-	public String generarNumeroOrden() {
-		int numero = 0;
-		String numeroConcatenado = "";
-		List<Orden> ordenes = findAll();
-
-		List<Integer> numeros = new ArrayList<Integer>();
-
-		// funciones de java8
-		// variable anonima
-		ordenes.stream().forEach(o -> numeros.add(Integer.parseInt(o.getNumero())));
-
-		// validacion
-		if (ordenes.isEmpty()) {
-			numero = 1;
-
-		} else {
-			numero = numeros.stream().max(Integer::compare).get();
-			numero++;
-
-		}
-
-		if (numero < 10) {
-			numeroConcatenado = "T000000000" + String.valueOf(numero);
-		} else if (numero < 100) {
-			numeroConcatenado = "T00000000" + String.valueOf(numero);
-
-		} else if (numero < 100) {
-			numeroConcatenado = "T0000000" + String.valueOf(numero);
-
-		}
-
-		return numeroConcatenado;
+	public List<Producto> findALL() {
+		// TODO Auto-generated method stub
+		return productorepository.findAll();
 	}
 
 }

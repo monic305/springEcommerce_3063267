@@ -16,6 +16,4 @@ public interface IProductoService {
 	public void delete(Integer id);
 
 	public List<Producto> findALL();
-
-	
 }
