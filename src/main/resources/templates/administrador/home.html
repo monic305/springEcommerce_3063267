@@ -11,7 +11,7 @@
   </div><!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
-  <div th:insert="~{administrador/template_admin.html::sidebar}"></div>
+  <div th:insert="~{administrador/template_admin.html::aside}"></div>
   <!-- End Sidebar-->
 
   <main id="main" class="main">
@@ -36,10 +36,7 @@
   <div th:insert="~{administrador/template_admin.html::footer}"></div>
 
   <!-- Vendor JS Files -->
-  <div th:fragment="~{administrador/template_admin.html::JS}"></div>
-  
-  <!-- Template Main JS File -->
-  <script th:src="@{/assetsADMIN/js/main.js}"></script>
+  <div th:insert="~{administrador/template_admin.html::JS}"></div>
 
 </body>
 
