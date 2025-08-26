@@ -26,7 +26,7 @@ public class ProductoController {
 	@Autowired
 	private IProductoService productoservice;
 
-	// metodod de listar productos
+	// metodo de listar productos
 	@GetMapping("")
 	public String show(Model model) {
 		model.addAttribute("productos", productoservice.findALL());
@@ -40,7 +40,7 @@ public class ProductoController {
 	}
 
 	// Metodo de creacion de productos
-	@PostMapping
+	@PostMapping("/save")
 	public String save(Producto producto) {
 		LOGGER.info("este es el objeto del producto a guardar en la DB {}", producto);
 		Usuario u = new Usuario(1, "", "", "", "", "", "", "", "");
@@ -56,7 +56,7 @@ public class ProductoController {
 		// el optional nos retorna la busqueda de un objeto de tipo producto con el id
 		Optional<Producto> op = productoservice.get(id);
 		p = op.get();
-		LOGGER.warn("Bsqueda de producto por id {}", p);
+		LOGGER.warn("Busqueda de producto por id {}", p);
 		model.addAttribute("producto", p);
 		return "productos/edit";
 	}
@@ -72,5 +72,9 @@ public class ProductoController {
 	}
 
 	// metodo para eliminar con id un producto
-
+	@GetMapping ("/delete/{id}")
+	public String delete(@PathVariable Integer id) {
+		productoservice.delete(id);
+		return "redirect:/productos";
+	}
 }

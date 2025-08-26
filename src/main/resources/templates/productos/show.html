@@ -38,6 +38,16 @@
 
 							<table class="table datatable">
 								<thead>
+									<tr>
+										<th scope="col">Nombre</th>
+										<th scope="col">Descripción</th>
+										<th scope="col">Cantidad</th>
+										<th scope="col">Precio</th>
+										<th scope="col">Acción</th>
+										<th scope="col">Acción</th>
+									</tr>
+								</thead>
+								<tbody>
 									<tr th:each="producto:${productos}">
 										<td th:text="${producto.nombre}"></td>
 										<td th:text="${producto.descripcion}"></td>
@@ -47,14 +57,14 @@
 										</td>
 										<td><a title="Editar" class="btn btn-warning"
 												th:href="@{productos/edit/{id} (id=${producto.id})}">
-												<i class="bi bi-pencil-square"></i>
+												<i class="bi bi-pencil-square">editar</i>
 											</a></td>
 										<td><a title="Eliminar" class="btn btn-danger"
 												th:href="@{productos/delete/{id} (id=${producto.id})}">
-												<i class="bi bi-file-earmark-x"></i>
+												<i class="bi bi-file-earmark-x">eliminar</i>
 											</a></td>
-									</tr>
-									</tbody>
+										</tr>
+								</tbody>
 							</table>
 						</div>
 					</div>
